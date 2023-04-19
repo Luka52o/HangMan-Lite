@@ -5,11 +5,24 @@ namespace HangMan_Lite
     internal class Program
     {
         static void Main(string[] args)
-        {             
+        {
             string word, displayWord = "", guess;
             int incorrectGuesses = 0, correctGuesses = 0, guessIndex = 0, guessIndexInitial;
             bool done = false;
+            Random generator = new Random();
             List<string> guesses = new List<string>();
+            List<string> randWords = new List<string>();
+            randWords.Add("CAMERA");
+            randWords.Add("SNAIL");
+            randWords.Add("CRAYON");
+            randWords.Add("SNOWMAN");
+            randWords.Add("MOON");
+            randWords.Add("GIRAFFE");
+            randWords.Add("BRIDGE");
+            randWords.Add("ORANGE");
+            randWords.Add("MOUNTAINS");
+            randWords.Add("JAZZ");
+            
 
             Console.WriteLine("Welcome to Hangman!");
             Console.WriteLine("Please have a second player enter the secret word, or enter '0' to use a random word");
@@ -17,7 +30,7 @@ namespace HangMan_Lite
             word = word.ToUpper();
             if (word == "0")
             {
-                // randomly generate word
+                word = randWords[generator.Next(0, 10)];
             }
             
             DrawStageOne();
